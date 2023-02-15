@@ -91,14 +91,14 @@ class Submarine(Ship):
 # class Transport(Ship):
 # class Pirate(Ship): 
 
-SEAL_team1 = SEALs('SEALs')
+seal_team1 = SEALs('SEALs')
 carrier1 = Carrier('USS Enterprise')
 submarine1 = Submarine('USS Virginia')
 
-print(SEAL_team1.get_stats())
-print(carrier1.get_attack())
-print(submarine1.how_many_squads)
-print(SEAL_team1.how_many_squads)
+print(seal_team1.get_stats())
+print(carrier1.get_stats())
+print(submarine1.get_stats())       # get stats doesn't show additional attributes for children of Ship class
+print(seal_team1.how_many_squads)
 # class Building:
 #     how_many_buildings = 0
 
