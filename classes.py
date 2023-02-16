@@ -1,5 +1,3 @@
-import math
-
 class Ship:
     how_many_ships = 0          # to access how many ships in game
 
@@ -160,7 +158,47 @@ class Pirate(Ship):
     def __init__(self, color, name='Unnamed Destroyer', health=5, defense=0, primary_attack=1):
         super().__init__(color, name, health, defense, primary_attack)
         Pirate.how_many_pirates += 1
+ 
 
+class Building:
+    how_many_buildings = 0
+
+    def __init__(self, color, health=1000,):
+         Building.how_many_buildings +=1
+         self.color = color
+         self.health = health
+         self.queue = []
+    def get_color(self):
+        return self.color
+    def get_health(self):
+        return self.health
+    def get_queue(self):
+        return self.queue
+    def get_stats(self):
+        return {
+            "Team":self.get_color(),
+            "Health:":self.get_health(),
+            "Queue":self.queue
+        }
+class Shipyard(Building):
+
+    def create_ship(self, ship_type, name):
+        if ship_type == 'Destroyer':
+            return Destroyer(name)
+        elif ship_type == 'Carrier':
+            return Carrier(name)
+        elif ship_type == 'Submarine':
+            return Submarine(name)
+        elif ship_type =='Battleship':
+            return Battleship(name)
+         
+# class Oil_rig(Building):
+# class Naval_base(Building)
+
+shipyard1 = Shipyard('Blue')
+print(shipyard1.get_stats())
+#------------------------------------------- Playground ----------------------------------------------
+shipyard1.create_ship("Carrier","USS Enterprise")
 carrier1 = Carrier('Blue','USS Enterprise')
 submarine1 = Submarine('Red','USS Virginia')
 battleship1 = Battleship('Red',"USS Arizona")
@@ -178,20 +216,4 @@ submarine1.attacked_by(carrier1.attack(submarine1))     #carrier attacks submari
 submarine1.healed_by(tender1.heal(submarine1))          #tender heals submarine
 
 print(carrier1.get_stats())
-print(submarine1.get_stats())       
-
-# class Building:
-#     how_many_buildings = 0
-
-#     def __init__(self, health, queue_length)
-#         Building.how_many_buildings +=1
-#         self.health = health
-#         self.queue = queue_length
-
-#     def create_ship(self, ship_type)
-
-# class Shipyard(Building):
-# class Oil_rig(Building):
-# class Naval_base(Building)
-
-
+print(submarine1.get_stats())      
