@@ -60,7 +60,7 @@ class Ship:
 
 class Carrier(Ship):
     how_many_carriers = 0
-    def __init__(self,color, name='Unnamed Carrier', health=1000, defense=5, primary_attack=10):
+    def __init__(self, color, name='Unnamed Carrier', health=1000, defense=5, primary_attack=10):
         super().__init__(color,name, health, defense, primary_attack)
         Carrier.how_many_carriers += 1
         self._aircraft = True
@@ -167,6 +167,7 @@ class Pirate(Ship):
     def __init__(self, color, name='Unnamed Destroyer', health=5, defense=0, primary_attack=1):
         super().__init__(color, name, health, defense, primary_attack)
         Pirate.how_many_pirates += 1
+
 
 # class Building:
 #     how_many_buildings = 0

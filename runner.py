@@ -1,4 +1,5 @@
 from classes import *
+from game import *
 
 high_score = 0
 prompt = """
@@ -14,7 +15,7 @@ while True:
     selection = int(input(prompt))
 
     if selection == 1:
-        #game code here
+        start()
         pass
     if selection == 2:
         #view high score code
