@@ -4,41 +4,45 @@ from classes import *
 def start():
     #player initialization
     #player_name = str(input("What is your name Admiral? > "))
+    color_prompt = """
+        What team?
+1. Blue
+2. Red
+3. YelloW
+"""
+    
+    user_input = input(color_prompt)            #choose team color
+    color = ''
+    if user_input == 1:
+        color = 'blue'
+    if user_input == 2:
+        color = 'red'
+    if user_input == 3:
+        color = 'yellow'
 
     prompt = """
 
-    1. Carrier
-    2. Submarine
-    3. Destroyer
+1. Carrier
+2. Submarine
+3. Destroyer
     """
-    player_fleet = []
-
     def initialize_ship(team, ship_type):
         if ship_type == 1:
-            return Carrier(team, str(input('What do you name this vessel? > ')))
+            return Carrier(team, str(input("Whats the name of this vessel? > ")))
         if ship_type == 2:
-            return Submarine(team, str(input('What do you name this vessel? > ')))
+            return Submarine(team, str(input("Whats the name of this vessel? > ")))
         if ship_type == 3:
-            return Destroyer(team, str(input('What do you name this vessel? > ')))
+            return Destroyer(team, str(input("Whats the name of this vessel? > ")))
 
-    ship1 = initialize_ship('blue', 1)
-    print(ship1.get_attack())
-    # ship1_type = str(input(f'== Choose 3 ships for your fleet ==\n{prompt}'))
-    # ship1 = initialize_ship(ship1_type, ship1_name)
-    # player_fleet.append(ship1)
-    # print(player_fleet)
+    ship_type = str(input(prompt))
+    ship1 = initialize_ship(color, ship_type)
+    ship2 = initialize_ship(color, ship_type)
+    ship3 = initialize_ship(color, ship_type)
+    player_fleet = [ship1, ship2, ship3]            #beginning fleet
+    
+    print(player_fleet)
 
-    # ship2_type = str(input(f'== Choose 2 ships for your fleet ==\n{prompt}'))
-    # ship1_name = str(input('What do you name this vessel? > '))
-    # ship2 = initialize_ship(ship2_type, ship2_name)
-    # player_fleet.append(ship2)
-    # print(player_fleet)
 
-    # ship3_type = str(input(f'== Choose 1 ship for your fleet ==\n{prompt}'))
-    # ship1_name = str(input('What do you name this vessel? > '))
-    # ship3 = initialize_ship(ship3_type, ship3_name)
-    # player_fleet.append(ship3)
-    # print(player_fleet)
 
 
 

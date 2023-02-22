@@ -70,6 +70,7 @@ class Carrier(Ship):
     def deploy_aircraft(self):
         if self._aircraft == True:
             return 
+            
     def get_stats(self):
         return {
             "Team":self.get_color(),
